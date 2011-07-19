@@ -1,10 +1,6 @@
 <html>
 <body>
 
-<!--{% for admins in admin %}-->
-<!--{{ admin.username }}-->
-<!--{{ admin.password }}-->
-<!--{% endfor %}-->
 {% if session.logged_in %}logged in <a href="{{ url_for('logout') }}">log out</a> <a href="{{ url_for('compose') }}">compose</a>
 {% else %}not logged in <a href="{{ url_for('login') }}">log in</a>
 
