@@ -1,0 +1,19 @@
+<html>
+<body>
+
+<!--{% for admins in admin %}-->
+<!--{{ admin.username }}-->
+<!--{{ admin.password }}-->
+<!--{% endfor %}-->
+{% if session.logged_in %}logged in <a href="{{ url_for('logout') }}">log out</a>
+{% else %}not logged in <a href="{{ url_for('login') }}">log in</a>
+
+{% endif %}
+{% for post in posts %}
+<div style="text-align:center;"><h2>{{ post.title }}</h2></div>
+<div style="text-align:center">{{ post.post_body }}</div>
+</br></br>
+{% endfor %}
+
+</body>
+</html>

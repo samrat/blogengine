@@ -1,0 +1,22 @@
+<html>
+<title>Login</title>
+<body>
+
+{% if not session.logged_in %}
+{{ error }}
+<form action="{{ url_for('login') }}" method=post>
+    <dl>
+    <dt>Username:
+    <dd><input type=text size=15 name=username>
+    
+    <dt>Password:
+    <dd><input type=password size=15 name=password>
+    
+    <dd><input type=submit name=action value='Login'>
+    
+</form>
+
+{% else %}
+You are already logged in!!
+
+{% endif %}

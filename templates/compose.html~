@@ -1,0 +1,14 @@
+<html>
+<body>
+
+<div style="text-align:center">
+<h3>BlogEngine</h3>
+<form action="{{ url_for('compose') }}" method="post">
+    <dl>
+        <dd><input type=text size=75 name=title>
+        <dd>
+        <dd><textarea name=post_body rows=25 cols=70></textarea>
+        <dd><input type=submit name=action value=Publish>
+</div>
+</body>
+</html>

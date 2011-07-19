@@ -1,0 +1,18 @@
+<html>
+<title>Register</title>
+<body>
+
+{% if not session.logged_in %}
+<form action="{{ url_for('register') }}" method=post>
+    <dl>
+    <dt>Username:
+    <dd><input type=text size=15 name=username>
+    
+    <dt>Password:
+    <dd><input type=password size=15 name=password>
+    
+    <dd><input type=submit name=action value=Register>
+    
+</form>
+
+{% endif %}
