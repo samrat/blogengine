@@ -1,9 +1,0 @@
-from flask import Flask
-import default_settings
-from initdb import db
-
-app = Flask(__name__)
-app.config.from_object(default_settings)
-
-db.init_app(app)
-
