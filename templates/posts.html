@@ -11,6 +11,8 @@
 {% endif %}
 {% for post in posts %}
 <div style="text-align:center;"><h2>{{ post.title }}</h2></div>
+published on {{ post.pub_date.date() }} 
+
 <div style="text-align:center">{{ post.post_body }}</div>
 </br></br>
 {% endfor %}

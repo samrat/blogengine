@@ -5,12 +5,14 @@
 <!--{{ admin.username }}-->
 <!--{{ admin.password }}-->
 <!--{% endfor %}-->
-{% if session.logged_in %}logged in <a href="{{ url_for('logout') }}">log out</a>
+{% if session.logged_in %}logged in <a href="{{ url_for('logout') }}">log out</a> <a href="{{ url_for('compose') }}">compose</a>
 {% else %}not logged in <a href="{{ url_for('login') }}">log in</a>
 
 {% endif %}
 {% for post in posts %}
 <div style="text-align:center;"><h2>{{ post.title }}</h2></div>
+{{ post.pub_date.date() }}
+
 <div style="text-align:center">{{ post.post_body }}</div>
 </br></br>
 {% endfor %}
