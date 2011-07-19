@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, abort, session
 import default_settings
-from flaskext.sqlalchemy import SQLAlchemy
-import datetime
+from flaskext.sqlalchemy import SQLAlchemy  #, desc
+from datetime import datetime
 
 app = Flask(__name__)   
 app.config.from_pyfile('default_settings.py')
@@ -12,19 +12,17 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(255))
     post_body = db.Column(db.Text)
-  
+    pub_date = db.Column(db.DateTime)
     
-    def __init__(self, title, post_body, date_published):
+    def __init__(self, title, post_body, pub_date):
         self.title = title
         self.post_body = post_body
-   
+        self.pub_date = pub_date
 
 def initdb():
     db.create_all()
     print "Initialized new empty database in %s" % app.config['SQLALCHEMY_DATABASE_URI']
-    
-
-#admin model- need to create a login system        
+          
 class Admin(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(255))
@@ -91,10 +89,10 @@ def compose():
         
     title = request.form['title']
     post_body = request.form['post_body']
-    
+    pub_date = datetime.now()
     
     if request.form['action'] == 'Publish':
-        post = Post(title, post_body)
+        post = Post(title, post_body, pub_date)
         db.session.add(post)
         db.session.commit()
         
@@ -103,9 +101,9 @@ def compose():
 #need to arrange posts in order of time posted. also need to add features like viewing posts individually, categorically and by month posted        
 @app.route('/')
 def index():
-    admin = Admin.query.all()
-    posts = Post.query.all()
     
+    posts = Post.query.order_by(Post.pub_date.desc())
+    #ordered_posts = posts.reverse() ##
     return render_template('posts.html', posts = posts)    
     
 if __name__ == '__main__':
