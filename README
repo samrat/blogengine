@@ -1,0 +1,6 @@
+Initialize database before your first run:
+
+>>>from blogengine import initdb
+>>>initdb()
+>>>Initialized new empty database in sqlite:////home/samrat/Projects/blogengine/blogengine.db
+
