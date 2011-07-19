@@ -104,7 +104,12 @@ def index():
     
     posts = Post.query.order_by(Post.pub_date.desc())
     #ordered_posts = posts.reverse() ##
-    return render_template('posts.html', posts = posts)    
+    return render_template('posts.html', posts = posts)  
+    
+@app.route('/post/<int:id>')  
+def post(id):
+    post = Post.query.filter_by(id=id).first()    
+    return render_template('post.html', post = post)
     
 if __name__ == '__main__':
     app.run()
