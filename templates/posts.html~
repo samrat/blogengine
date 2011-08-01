@@ -1,10 +1,11 @@
 <html>
 <head>
+<title>{{ config['BLOG_TITLE'] }}</title>
 <link rel="stylesheet" type="text/css" href="/static/main.css" /></head>
 <body>
 
-{% if session.logged_in %}logged in <a href="{{ url_for('logout') }}">log out</a> <a href="{{ url_for('compose') }}">compose</a>
-{% else %}not logged in <a href="{{ url_for('login') }}">log in</a>
+{% if session.logged_in %}<a href="{{ url_for('logout') }}">log out</a> <a href="{{ url_for('compose') }}">compose</a>
+{% else %}not logged in <a href="{{ url_for('login') }}">log in</a> or <a href="{{ url_for('register') }}">register</a>
 
 {% endif %}
 {% for post in posts %}

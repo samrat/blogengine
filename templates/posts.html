@@ -5,7 +5,7 @@
 <body>
 
 {% if session.logged_in %}logged in <a href="{{ url_for('logout') }}">log out</a> <a href="{{ url_for('compose') }}">compose</a>
-{% else %}not logged in <a href="{{ url_for('login') }}">log in</a>
+{% else %}<a href="{{ url_for('login') }}">log in</a> or <a href="{{ url_for('register') }}">register</a>
 
 {% endif %}
 {% for post in posts %}

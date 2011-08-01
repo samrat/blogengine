@@ -15,8 +15,4 @@
     
 </form>
 
-
-
-<!-->{% else %}
-{% redirect(url_for(index)) %}-->
 {% endif %}

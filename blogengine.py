@@ -36,7 +36,7 @@ class Admin(db.Model):
 @app.route('/register', methods = ['GET','POST'])
 def register():
     if Admin.query.first():
-        abort(401) #only one admin can exist
+        return render_template('login.html', error='Sorry, you are not authorized to create a new admin. There can only be one admin.')
         
     if request.method == 'GET':
         return render_template('register.html')

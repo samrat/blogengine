@@ -18,5 +18,5 @@
 
 {% else %}
 You are already logged in!!
-
+<a href="{{ url_for('compose') }}"">Proceed to create a post</a>
 {% endif %}

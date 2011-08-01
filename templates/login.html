@@ -4,6 +4,7 @@
 
 {% if not session.logged_in %}
 {{ error }}
+<h2>Login</h2>
 <form action="{{ url_for('login') }}" method=post>
     <dl>
     <dt>Username:

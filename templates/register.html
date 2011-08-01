@@ -1,7 +1,7 @@
 <html>
 <title>Register</title>
 <body>
-
+<h2>Register</h2>
 {% if not session.logged_in %}
 <form action="{{ url_for('register') }}" method=post>
     <dl>
