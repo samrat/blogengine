@@ -1,5 +1,6 @@
 import os
 
+BLOG_TITLE = 'BLOGENGINE'
 SECRET_KEY = 'abcdefg'
 DEBUG = True
 

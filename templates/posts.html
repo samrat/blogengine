@@ -1,4 +1,7 @@
 <html>
+<head>
+<title>{{ config['BLOG_TITLE'] }}</title>
+<link rel="stylesheet" type="text/css" href="/static/main.css" /></head>
 <body>
 
 {% if session.logged_in %}logged in <a href="{{ url_for('logout') }}">log out</a> <a href="{{ url_for('compose') }}">compose</a>
@@ -9,9 +12,10 @@
 <div style="text-align:center;">
 <a href="{{ url_for('post',id=post.id) }}"><h2>{{ post.title }}</h2></a>
 </div>
-published on {{ post.pub_date.date() }} 
 
-<div style="text-align:center">{{ post.post_body }}</div>
+<div class="pub_date">published on {{ post.pub_date.date() }}</div>
+
+<div class="post_body">{{ post.post_body }}</div>
 </br></br>
 {% endfor %}
 
