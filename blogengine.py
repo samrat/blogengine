@@ -64,7 +64,7 @@ def login():
     if request.form['action'] == 'Login':
         admin = Admin.query.first()
         if admin.username != username: error='Invalid Username'
-        elif admin.password != username: error='Invalid Password'
+        elif admin.password != password: error='Invalid Password'
         
         else: 
             session['logged_in'] = True
